@@ -227,20 +227,23 @@ const handleSubmit = async (e: any) => {
 
     toast.success("Booking request created!");
 
-    setForm({
-      roomId: "",
-      bookingType: "individual",
-      checkinDate: "",
-      checkoutDate: "",
-      occupantCount: "1",
-      members: [],
-      memberInput: "",
-      purpose: "",
-    });
+  setForm({
+  roomId: "",
+  bookingType: "individual",
+  checkinDate: "",
+  checkoutDate: "",
+  occupantCount: "1",
+  members: [],
+  memberInput: {
+    employeeId: "",
+    name: "",
+    email: "",
+  },
+  purpose: "",
+});
 
-    fetchBookings();
-    setTab("bookings");
-
+fetchBookings();
+setTab("bookings");
   } catch (error: any) {
     toast.error(
       error?.response?.data?.message || "Booking failed"
